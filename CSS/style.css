@@ -1,0 +1,204 @@
+/*Alex Nguyen
+alex_nguyen@student.uml.edu
+UMass Lowell COMP4610 GUI Programming I
+Purpose of this webpage: Practicing js by implementing a dynamic table*/
+/* .item2-error {
+	color: red;
+	font-style: italic;
+}
+
+#mult td:first-child
+{background-color: black !important;
+color: white !important;
+}
+
+#mult tr:first-child
+{background-color: black !important;
+color: white !important;
+}
+ */
+/* in js, made first row have id first, #first ~ selects all general siblings after first */
+/* alternating cell styling from https://stackoverflow.com/questions/18846271/css-how-to-target-a-specific-cell-inside-a-table */
+/* #mult  #first ~ tr:nth-child(odd)  td:nth-child(odd)
+{background-color: silver;
+}
+#mult  tr:nth-child(even)  td:nth-child(even)
+{background-color: silver;
+}
+ */
+
+/* css below from slider example in https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch03_TabsWidget.pdf */
+#sliderContainer
+{
+float: left;
+width:800px;  /* size of box */
+height:180px;
+padding:20px
+30px
+0;
+position:relative;
+font-size:11px;
+background:#eee;
+display: block;
+}
+#formContainer{
+
+}
+
+#sliderContainer label {
+float:left;
+text-align:right;
+margin:0
+30px
+26px
+0;
+clear:left;
+}
+
+.ui-slider {
+width:300px; /* length of slider */
+float:left;
+}
+.ui-slider-handle
+{
+width:15px;
+height:27px;
+}
+#formAndSliders
+{
+	width:500px;
+}
+
+
+#multTable
+{
+	display: block;
+}
+
+#formAndSliders #item4Label
+{
+	float:right;
+	margin: -50px
+	140px
+	0
+	0;
+}
+#formAndSliders #item3Label
+{
+	float:right;
+	margin: -85px
+	140px
+	0
+	0;
+}
+
+#formAndSliders #item2Label
+{
+	float:right;
+	margin: -125px
+	140px
+	0
+	0;
+}
+
+#formAndSliders #itemLabel
+{
+	float:right;
+	margin: -160px
+	140px
+	0
+	0;
+}
+
+
+#item4
+{
+	width:100px;
+text-align:center;
+float:right;
+clear:both;
+margin-top:-50px;
+}
+
+
+#item
+{
+	width:100px;
+text-align:center;
+float:right;
+clear:both;
+margin-top:-160px;
+}
+#item2
+{
+	width:100px;
+text-align:center;
+float:right;
+clear:both;
+margin-top:-125px;
+}
+
+
+#item3
+{
+	width:100px;
+text-align:center;
+float:right;
+clear:both;
+margin-top:-85px;
+}
+
+#submitBtn{
+	width:100px;
+	text-align:center;
+	float:right;
+
+	margin: 0
+	20px
+	0
+	50px;
+}
+
+#formAndSliders #item2-error
+{
+	float:right;
+	margin: -125px
+	200px
+	0
+	0;
+	color: red;
+	
+}
+#formAndSliders #item4-error
+{
+	float:right;
+	margin: -50px
+	200px
+	0
+	0;
+	color: red;
+	
+}
+
+#formAndSliders #item3-error
+{
+	float:right;
+	margin: -85px
+	200px
+	0
+	0;
+	color: red;
+	
+}
+
+#formAndSliders #item-error
+{
+	float:right;
+	margin: -160px
+	200px
+	0
+	0;
+	color: red;
+	
+}
+

@@ -1,0 +1,82 @@
+<!--Alex Nguyen-->
+<!--alex_nguyen@student.uml.edu-->
+<!--UMass Lowell COMP4610 GUI Programming I-->
+<!--Purpose of this webpage: Practicing js by implementing a dynamic table
+ and using jquery validation methods to get user to enter correct input-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- bootstrap table, header, form from https://www.youtube.com/watch?v=0ik6X4DJKCc -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <title>Multiplication Table</title>
+  <link href="CSS/style.css" rel="stylesheet">
+  
+</head>
+<body>
+
+<header id="header">
+        <h1 id="header-title">Multiplication Table</h1>
+</header>
+<div id = "formAndSliders">
+	<div id="sliderContainer" class="ui-widget ui-corner-all ui-widget-content ui-helper-clearfix">
+			<label>X1:</label>
+			<div id="x1Slider"></div><br>
+			<label>X2:</label>
+			<div id="x2Slider"></div><br>
+			<label>Y1:</label>
+			<div id="y1Slider"></div>
+			<label>Y2:</label>
+			<div id="y2Slider"></div>
+			<div id="formContainer">
+			<form id="addForm" class="form-inline mb-3">
+				<p>
+				<label id="itemLabel" for="item">X Value 1</label>
+				  <input type="text" class="form-control mr-2" id="item" name="item">
+				</p>
+				<p>
+				<label id="item2Label" for="item2">X Value 2</label>
+				  <input type="text" class="form-control mr-2" id="item2" name="item2">
+				</p>
+				<p>
+				<label id="item3Label" for="item3">Y Value 1</label>
+				  <input type="text" class="form-control mr-2" id="item3" name="item3">
+				</p>  
+				<p>
+				<label id="item4Label" for="item4">Y Value 2</label>
+				  <input type="text" class="form-control mr-2" id="item4" name="item4">
+				</p>  
+				<p>
+				   <button id="submitBtn" type="submit">Submit form</button>
+				</p>
+				  <p id= "invalid"></p>
+			</form>	
+		</div>
+		
+		</div>	
+	 <div id="multTable">
+			<table id = "mult" class = "table table-bordered table-dark" >
+			</table>
+		</div>
+	</div>
+	
+<!-- cdn goes before local js 
+jquery.validate additional-methods
+validation scripts from: 
+followed tutorial from: 
+https://www.youtube.com/watch?v=yaxUV3Ib4vM
+validation interacts with the name attributes
+ -->
+		<script	
+	  src="https://code.jquery.com/jquery-3.4.1.min.js"
+	  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	  crossorigin="anonymous"></script>
+		<script
+	  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+	  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+	  crossorigin="anonymous"></script>
+ <script src="JS/jquery.validate.js"></script>
+ <script src="JS/additional-methods.js"></script>
+ <script src="JS/hw8.js"></script>
+</body>
+</html>
