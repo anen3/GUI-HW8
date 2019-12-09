@@ -2,10 +2,6 @@
 alex_nguyen@student.uml.edu
 UMass Lowell COMP4610 GUI Programming I
 Purpose of this webpage: Practicing js by implementing a dynamic table*/
-/* .item2-error {
-	color: red;
-	font-style: italic;
-}
 
 #mult td:first-child
 {background-color: black !important;
@@ -16,59 +12,62 @@ color: white !important;
 {background-color: black !important;
 color: white !important;
 }
- */
+ 
 /* in js, made first row have id first, #first ~ selects all general siblings after first */
 /* alternating cell styling from https://stackoverflow.com/questions/18846271/css-how-to-target-a-specific-cell-inside-a-table */
-/* #mult  #first ~ tr:nth-child(odd)  td:nth-child(odd)
-{background-color: silver;
+ #mult  #first ~ tr:nth-child(odd)  td:nth-child(odd)
+{background-color: white;
+color: black;
 }
 #mult  tr:nth-child(even)  td:nth-child(even)
-{background-color: silver;
+{background-color: white;
+color: black;
 }
- */
+td { 
+	min-width: 50px;
+	max-width: 100px;
+}
 
 /* css below from slider example in https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch03_TabsWidget.pdf */
 #sliderContainer
-{
-float: left;
-width:800px;  /* size of box */
-height:180px;
-padding:20px
-30px
-0;
-position:relative;
-font-size:11px;
-background:#eee;
-display: block;
+	{
+	float: left;
+	width:800px;  /* size of box */
+	height:220px;
+	padding:20px
+	30px
+	0;
+	position:relative;
+	font-size:11px;
+	background:#eee;
+	display: block;
 }
-#formContainer{
 
-}
 
 #sliderContainer label {
-float:left;
-text-align:right;
-margin:0
-30px
-26px
-0;
-clear:left;
+	float:left;
+	text-align:right;
+	margin:0
+	30px
+	26px
+	0;
+	clear:left;
 }
 
 .ui-slider {
-width:300px; /* length of slider */
-float:left;
+	width:300px; /* length of slider */
+	float:left;
 }
 .ui-slider-handle
 {
-width:15px;
-height:27px;
+	width:15px;
+	height:27px;
 }
 #formAndSliders
 {
 	width:500px;
-}
 
+}
 
 #multTable
 {
@@ -114,38 +113,38 @@ height:27px;
 #item4
 {
 	width:100px;
-text-align:center;
-float:right;
-clear:both;
-margin-top:-50px;
+	text-align:center;
+	float:right;
+	clear:both;
+	margin-top:-50px;
 }
 
 
 #item
 {
 	width:100px;
-text-align:center;
-float:right;
-clear:both;
-margin-top:-160px;
+	text-align:center;
+	float:right;
+	clear:both;
+	margin-top:-160px;
 }
 #item2
 {
 	width:100px;
-text-align:center;
-float:right;
-clear:both;
-margin-top:-125px;
+	text-align:center;
+	float:right;
+	clear:both;
+	margin-top:-125px;
 }
 
 
 #item3
 {
 	width:100px;
-text-align:center;
-float:right;
-clear:both;
-margin-top:-85px;
+	text-align:center;
+	float:right;
+	clear:both;
+	margin-top:-85px;
 }
 
 #submitBtn{
@@ -154,7 +153,7 @@ margin-top:-85px;
 	float:right;
 
 	margin: 0
-	20px
+	0px
 	0
 	50px;
 }
