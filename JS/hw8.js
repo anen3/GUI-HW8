@@ -11,12 +11,13 @@ var numRows = 0; // keeps track of the rows made in previous table. used to clea
 // Form submit event give input to function additem
 form.addEventListener('submit', formSubmitted);
 
+//run this when function user presses submit, 
 function formSubmitted(e) {
 e.preventDefault();
 addItem();
 }
 
-// Add item 
+// process the form inputs, outputs the table.
 function addItem(){ 
 	var table = document.getElementById('mult');
 	var arr = []; //holds table entries
@@ -134,7 +135,8 @@ function addItem(){
 		}
 	}
 }
-/* clear validator for slider, make the function resuable with var validator https://stackoverflow.com/questions/2086287/how-to-clear-jquery-validation-error-messages */
+/* set the function as a var so to allow the validator message to clear with the method resetForm when a slider is moved.
+ https://stackoverflow.com/questions/2086287/how-to-clear-jquery-validation-error-messages */
   var validator = $("#addForm").validate({
 		rules: {
 			item: {
@@ -181,9 +183,11 @@ $(document).ready(function(){
   
 });
 /* $(function() same effect as document ready*/
-/* borrowed code from colorslider
-Included are four sliders set to initial value 0, with ranges from [-50,50]. Call function addItem to update the table each time a slider is moved. 
-https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch06_SliderWidget.pdf */
+/* borrowed code from colorslider example: 
+https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch06_SliderWidget.pdf 
+ The function will display  four sliders, each set to initial value 0, with ranges from [-50,50]. 
+ Call function addItem to update the table each time a slider is moved. 
+ used the var validator to reset any eror messages, but it will also reset invalid inputs to zero */
 $(function(){
 		var sliderOpts = {
 		  min:-50,
