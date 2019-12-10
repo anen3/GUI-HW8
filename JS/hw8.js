@@ -16,7 +16,6 @@ form.addEventListener('submit', formSubmitted);
 //run this when function user presses submit, 
 function formSubmitted(e) {
 	e.preventDefault();
-	$("#myTabs").css("visibility", "visible");
 	addItem();
 	addTab();
 }
@@ -42,6 +41,7 @@ function addItem(){
 		/* document.getElementById('invalid').innerHTML = 'One of your inputs is invalid. Table did not get created.'; */
 		return;
 	}
+	$("#myTabs").css("visibility", "visible"); /* can make tab window visible now */
 	else {
 		document.getElementById('invalid').innerHTML = '';
 	}
