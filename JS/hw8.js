@@ -13,13 +13,14 @@ form.addEventListener('submit', formSubmitted);
 
 //run this when function user presses submit, 
 function formSubmitted(e) {
-e.preventDefault();
-addItem();
-addTab();
+	e.preventDefault();
+	$("#myTabs").css("visibility", "visible");
+	addItem();
+	addTab();
 }
 
 // process the form inputs, outputs the table.
-function addItem(){ 
+function addItem(){
 	var table = document.getElementById('mult');
 	var arr = []; //holds table entries
 	var item3Big = 0;
@@ -190,38 +191,43 @@ https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch06
  Call function addItem to update the table each time a slider is moved. 
  used the var validator to reset any eror messages, but it will also reset invalid inputs to zero */
 (function($){
-		var sliderOpts = {
-		  min:-50,
-		  max: 50,
-		  value: 0,
-		  slide: function() {
-		/* initial values for slider is set 255*/
-		var y1 = $("#y1Slider").slider("value"),
-		y2 = $("#y2Slider").slider("value"),
-		x1 = $("#x1Slider").slider("value"),
-		x2 = $("#x2Slider").slider("value");
-		$("#item").val(x1);
-		$("#item2").val(x2);
-		$("#item3").val(y1);
-		$("#item4").val(y2);
-		addItem();
-		validator.resetForm();
-		}
-		};
-		$("#x1Slider, #x2Slider, #y1Slider, #y2Slider").slider(sliderOpts);
-		  })(jQuery);
+	var sliderOpts = {
+	  min:-50,
+	  max: 50,
+	  value: 0,
+	  slide: function() {
+	/* initial values for slider is set 255*/
+	var y1 = $("#y1Slider").slider("value"),
+	y2 = $("#y2Slider").slider("value"),
+	x1 = $("#x1Slider").slider("value"),
+	x2 = $("#x2Slider").slider("value");
+	$("#item").val(x1);
+	$("#item2").val(x2);
+	$("#item3").val(y1);
+	$("#item4").val(y2);
+	addItem();
+	validator.resetForm();
+	}
+	};
+	$("#x1Slider, #x2Slider, #y1Slider, #y2Slider").slider(sliderOpts);
+	  })(jQuery);
 		  
 		  
 		
  (function($){
 	$("#myTabs").tabs();
 	
-	/* used this since no remove method in jquery ui documentation https://stackoverflow.com/questions/21709989/no-such-method-remove-for-tabs-widget-instance */
+	/* used this to remove tabs with jquery ui documentation https://stackoverflow.com/questions/21709989/no-such-method-remove-for-tabs-widget-instance */
 	$("#remove").click(function() {
 		var active = $( "#myTabs" ).tabs( "option", "active" );
+		var num_tabs = $("#myTabs ul li").length + 1;
 		$("#myTabs").find( ".ui-tabs-nav li:eq(" + active + ")" ).remove();
 		$("#myTabs").find( "div:eq(" + active + ")" ).remove();
-		  $("#myTabs").tabs( "refresh" );
+		$("#myTabs").tabs( "refresh" );
+		if(num_tabs -1  == 1) /*hide tab window if there are no saved tables*/
+		{
+			$("#myTabs").css("visibility", "hidden");
+		}
 	});
 	
  })(jQuery);
@@ -230,14 +236,31 @@ https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch06
 	 /* append the list item to the mytabs list then append the div to mytabs */
 	 /* call a function to insert a table into the div? */
 function addTab() {
-		var num_tabs = $("#myTabs ul li").length + 1;
-		var table = document.getElementById("mult");
-		var num = num_tabs -1;
-		$("#myTabs ul").append("<li><a href='#tab" + num_tabs + "'>Table " + num_tabs + "</a></li>");
-		$("#myTabs").append("<div id='tab"+num_tabs+"'></div>");
-		$("#myTabs div:eq("+ num+ ")").append(cloneTable());
-		$("#myTabs").tabs("refresh");
+	var num_tabs = $("#myTabs ul li").length + 1;
+	var table = document.getElementById("mult");
+	var num = num_tabs - 1; /* index of divs in tab widget */
+	var newItem = parseInt(document.getElementById('item').value);
+	var newItem2 = parseInt(document.getElementById('item2').value);
+	var newItem3 = parseInt(document.getElementById('item3').value);
+	var newItem4 = parseInt(document.getElementById('item4').value);
+	if(isNaN(newItem) || isNaN(newItem2) || isNaN(newItem3) || isNaN(newItem4))
+	{
+		return;
+	}
+	var minX = Math.min(newItem, newItem2);
+	var maxX = Math.max(newItem, newItem2);
+	var minY = Math.min(newItem3, newItem4);
+	var maxY = Math.max(newItem3, newItem4);
+	$("#myTabs ul").append("<li><a href='#tab" + num_tabs + "'>Table "+ num_tabs + " X: [" + minX + "," + maxX	+ "] Y: [" + minY + "," + maxY + "]" +   "</a></li>");
+	$("#myTabs").append("<div id='tab"+num_tabs+"'></div>");
+	$("#myTabs div:eq("+ num+ ")").append(cloneTable()); 
+	$("#myTabs").tabs("refresh");
+	var tabOpts = {
+			 active: num
+			};
+			$("#myTabs").tabs(tabOpts); /*load the created tab because default is collapsed*/
 }
+
 /* create a duplicate table  to place in tab
 https://stackoverflow.com/questions/921290/is-it-possible-to-clone-html-element-objects-in-javascript-jquery */
 function cloneTable() {
