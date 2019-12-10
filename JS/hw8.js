@@ -15,6 +15,7 @@ form.addEventListener('submit', formSubmitted);
 function formSubmitted(e) {
 e.preventDefault();
 addItem();
+addTab();
 }
 
 // process the form inputs, outputs the table.
@@ -188,7 +189,7 @@ https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch06
  The function will display  four sliders, each set to initial value 0, with ranges from [-50,50]. 
  Call function addItem to update the table each time a slider is moved. 
  used the var validator to reset any eror messages, but it will also reset invalid inputs to zero */
-$(function(){
+(function($){
 		var sliderOpts = {
 		  min:-50,
 		  max: 50,
@@ -209,6 +210,38 @@ $(function(){
 		};
 		$("#x1Slider, #x2Slider, #y1Slider, #y2Slider").slider(sliderOpts);
 		  })(jQuery);
-
-
-
+		  
+		  
+		
+ (function($){
+	$("#myTabs").tabs();
+	
+	/* used this since no remove method in jquery ui documentation https://stackoverflow.com/questions/21709989/no-such-method-remove-for-tabs-widget-instance */
+	$("#remove").click(function() {
+		var active = $( "#myTabs" ).tabs( "option", "active" );
+		$("#myTabs").find( ".ui-tabs-nav li:eq(" + active + ")" ).remove();
+		$("#myTabs").find( "div:eq(" + active + ")" ).remove();
+		  $("#myTabs").tabs( "refresh" );
+	});
+	
+ })(jQuery);
+ 
+	 /* add tab code taken from the jfiddle link https://stackoverflow.com/questions/14702631/in-jquery-ui-1-9-how-do-you-create-new-tabs-dynamically and http://jsfiddle.net/AJDLt/1/  */
+	 /* append the list item to the mytabs list then append the div to mytabs */
+	 /* call a function to insert a table into the div? */
+function addTab() {
+		var num_tabs = $("#myTabs ul li").length + 1;
+		var table = document.getElementById("mult");
+		var num = num_tabs -1;
+		$("#myTabs ul").append("<li><a href='#tab" + num_tabs + "'>Table " + num_tabs + "</a></li>");
+		$("#myTabs").append("<div id='tab"+num_tabs+"'></div>");
+		$("#myTabs div:eq("+ num+ ")").append(cloneTable());
+		$("#myTabs").tabs("refresh");
+}
+/* create a duplicate table  to place in tab
+https://stackoverflow.com/questions/921290/is-it-possible-to-clone-html-element-objects-in-javascript-jquery */
+function cloneTable() {
+	var table = document.getElementById("mult");
+	var dupTable = table.cloneNode(true);
+	return dupTable;
+}

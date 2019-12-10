@@ -157,7 +157,16 @@ td {
 	0
 	50px;
 }
+#remove{
+	width:100px;
+	text-align:center;
+	float:right;
 
+	margin: 0
+	0px
+	0
+	50px;
+}
 #formAndSliders #item2-error
 {
 	float:right;
