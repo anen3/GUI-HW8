@@ -41,10 +41,8 @@ function addItem(){
 		/* document.getElementById('invalid').innerHTML = 'One of your inputs is invalid. Table did not get created.'; */
 		return;
 	}
-	$("#myTabs").css("visibility", "visible"); /* can make tab window visible now */
-	else {
+		$("#myTabs").css("visibility", "visible"); /* can make tab window visible now */
 		document.getElementById('invalid').innerHTML = '';
-	}
 	if(newItem < newItem2){
 		var numCols = newItem2 - newItem;
 	}
