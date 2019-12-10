@@ -1,7 +1,9 @@
 /*Alex Nguyen
 alex_nguyen@student.uml.edu
 UMass Lowell COMP4610 GUI Programming I
-Purpose of this webpage: Practicing js by implementing a dynamic table*/
+Purpose of this webpage: Practicing js by implementing a dynamic table
+ and using jquery validation methods to get user to enter correct input
+ also using jquery ui slider and tab api*/
 
 //modified the example from w3schools to add multiple rows using a loop https://www.w3schools.com/jsref/met_table_insertrow.asp 
 //some form/dom manipulation from traversy dom crash course 4
